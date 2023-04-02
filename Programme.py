@@ -52,15 +52,23 @@ print('Message :', message)
 print('Message chiffré :', message_chiffre)
 
 
-def decrypt_cesar(messagecode, shift):
+def decrypt_cesar(messagecode, cle):
     message = ""
     for letter in messagecode:
-        if letter.isalpha():
+        if 65 <= ord(letter) <= 90:
             # Décale la lettre en fonction de la clé de chiffrement
-            message += chr((ord(letter) - shift - 65) % 26 + 65)
+            message += chr(65 + (ord(letter) - cle - 65) % 26)
+        elif 97 <= ord(letter) <= 122 :
+            message += chr(97 + (ord(letter) - cle - 97)% 26)
+        
         else:
             message += letter
     return message
+
+messagecode = "Mf DIJGGSFNFOU EF DFTBS FTU VO DIJGGSFNFOU QBS TVCTUJUVUJPO"
+cle = 1
+message = decrypt_cesar(messagecode, cle)
+print(message)
 
 messagecode = "OH FKLIIUHPHQW GH FHVDU HVW XQ FKLIIUHPHQW SDU VXEVWLWXWLRQ"
 decalage = 3
