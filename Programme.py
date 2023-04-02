@@ -67,3 +67,74 @@ decalage = 3
 message = decrypt_cesar(messagecode, shift )
 print(message)
 
+#INTERPHACECODECESAR
+import tkinter as tk
+
+def encrypt_cesar(plaintext, shift):
+    ciphertext = ""
+    for letter in plaintext:
+        if letter.isalpha():
+            # Décale la lettre en fonction de la clé de chiffrement
+            ciphertext += chr((ord(letter) + shift - 65) % 26 + 65)
+        else:
+            ciphertext += letter
+    return ciphertext
+
+def decrypt_cesar(ciphertext, shift):
+    plaintext = ""
+    for letter in ciphertext:
+        if letter.isalpha():
+            # Décale la lettre en fonction de la clé de chiffrement
+            plaintext += chr((ord(letter) - shift - 65) % 26 + 65)
+        else:
+            plaintext += letter
+    return plaintext
+
+def encrypt():
+    plaintext = plaintext_input.get()
+    shift = int(shift_input.get())
+    ciphertext = encrypt_cesar(plaintext, shift)
+    ciphertext_output.delete(0, tk.END)
+    ciphertext_output.insert(0, ciphertext)
+
+def decrypt():
+    ciphertext = ciphertext_input.get()
+    shift = int(shift_input.get())
+    plaintext = decrypt_cesar(ciphertext, shift)
+    plaintext_output.delete(0, tk.END)
+    plaintext_output.insert(0, plaintext)
+
+# Crée une fenêtre GUI
+root = tk.Tk()
+root.title("Chiffrement de César")
+
+# Ajoute des widgets à la fenêtre
+plaintext_label = tk.Label(root, text="Texte en clair:")
+plaintext_label.pack()
+plaintext_input = tk.Entry(root)
+plaintext_input.pack()
+
+shift_label = tk.Label(root, text="Clé de chiffrement:")
+shift_label.pack()
+shift_input = tk.Entry(root)
+shift_input.pack()
+
+encrypt_button = tk.Button(root, text="Chiffrer", command=encrypt)
+encrypt_button.pack()
+
+ciphertext_label = tk.Label(root, text="Texte chiffré:")
+ciphertext_label.pack()
+ciphertext_input = tk.Entry(root)
+ciphertext_input.pack()
+
+decrypt_button = tk.Button(root, text="Déchiffrer", command=decrypt)
+decrypt_button.pack()
+
+plaintext_output = tk.Entry(root)
+plaintext_output.pack()
+
+ciphertext_output = tk.Entry(root)
+ciphertext_output.pack()
+
+# Lance la boucle d'événements
+root.mainloop()
