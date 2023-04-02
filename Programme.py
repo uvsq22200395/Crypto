@@ -50,3 +50,20 @@ message_chiffre = cesar_chiffre(message, decalage)
 
 print('Message :', message)
 print('Message chiffré :', message_chiffre)
+
+
+def decrypt_cesar(messagecode, shift):
+    message = ""
+    for letter in messagecode:
+        if letter.isalpha():
+            # Décale la lettre en fonction de la clé de chiffrement
+            message += chr((ord(letter) - shift - 65) % 26 + 65)
+        else:
+            message += letter
+    return message
+
+messagecode = "OH FKLIIUHPHQW GH FHVDU HVW XQ FKLIIUHPHQW SDU VXEVWLWXWLRQ"
+decalage = 3
+message = decrypt_cesar(messagecode, shift )
+print(message)
+
