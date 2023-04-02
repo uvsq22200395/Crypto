@@ -21,3 +21,32 @@ def cesar2(mot, cle):
         mot_crypte += cryptage2(cle, lettre)
     return mot_crypte
 cesar2("bonjour", 1)
+
+
+
+
+def cesar_chiffre(message, decalage):
+    """
+    Cette fonction chiffre le message donné en utilisant le chiffrement de César avec un décalage donné.
+    """
+    alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    message_chiffre = ''
+    
+    for lettre in message:
+        if lettre in alphabet:
+            index_lettre = alphabet.index(lettre)
+            index_chiffre = (index_lettre + decalage) % len(alphabet)
+            lettre_chiffre = alphabet[index_chiffre]
+            message_chiffre += lettre_chiffre
+        else:
+            message_chiffre += lettre
+            
+    return message_chiffre
+
+message = 'LE CHIFFREMENT DE CESAR EST UN CHIFFREMENT PAR SUBSTITUTION'
+decalage = 3
+
+message_chiffre = cesar_chiffre(message, decalage)
+
+print('Message :', message)
+print('Message chiffré :', message_chiffre)
