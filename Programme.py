@@ -77,6 +77,33 @@ def decrypt_scytale(ciphertext, key):
         index = (index + 1) % key
     return ''.join(plaintext)
 
+def vigenere_encrypt(plaintext, key):
+    ciphertext = ""
+    key_index = 0
+    for char in plaintext:
+        if char.isalpha():
+            shift = ord(key[key_index % len(key)].upper()) - 65
+            cipher_char = chr((ord(char.upper()) + shift - 65) % 26 + 65)
+            ciphertext += cipher_char
+            key_index += 1
+        else:
+            ciphertext += char
+    return ciphertext
+
+def vigenere_decrypt(ciphertext, key):
+    plaintext = ""
+    key_index = 0
+    for char in ciphertext:
+        if char.isalpha():
+            shift = ord(key[key_index % len(key)].upper()) - 65
+            plain_char = chr((ord(char.upper()) - shift - 65) % 26 + 65)
+            plaintext += plain_char
+            key_index += 1
+        else:
+            plaintext += char
+    return plaintext
+
+
 #CodeCesarTessaCryptage
 def cryptage(message, cle) : 
     message_resultat = ""
