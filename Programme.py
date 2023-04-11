@@ -77,7 +77,7 @@ def decrypt_scytale(ciphertext, key):
         index = (index + 1) % key
     return ''.join(plaintext)
 
-def vigenere_encrypt(plaintext, key):
+def vigenere_cryptage(plaintext, key):
     ciphertext = ""
     key_index = 0
     for char in plaintext:
@@ -90,7 +90,7 @@ def vigenere_encrypt(plaintext, key):
             ciphertext += char
     return ciphertext
 
-def vigenere_decrypt(ciphertext, key):
+def vigenere_decryptage(ciphertext, key):
     plaintext = ""
     key_index = 0
     for char in ciphertext:
