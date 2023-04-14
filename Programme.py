@@ -58,7 +58,7 @@ message_dechiffre = dechiffre_message(message_chiffre)
 print("message chiffré:", message_chiffre)
 print("message déchiffré:",message_dechiffre)
 
-def encrypt_scytale(plaintext, key):
+def cryptage_scytale(plaintext, key):
     key = int(key)
     ciphertext = [''] * key
     index = 0
@@ -68,7 +68,7 @@ def encrypt_scytale(plaintext, key):
     return ''.join(ciphertext)
 
 # Fonction de déchiffrement de Scytale
-def decrypt_scytale(ciphertext, key):
+def decryptage_scytale(ciphertext, key):
     key = int(key)
     plaintext = [''] * len(ciphertext)
     index = 0
