@@ -1,6 +1,7 @@
 #Chiffrement par substitution mono-alphabétique. MARIE-MICHELE1
 import random
 import tkinter as tk
+
 #création de l'alphabet
 liste_a = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 print("alphabet original:",liste_a)
@@ -33,7 +34,7 @@ print("message original:",message_en_clair)
 print("message chiffré:",message_chiffré)
 
 #décriptage MARIE-MICHELE2 
-alphabet = list(ABCCDEFGHIJQLMNOPQRSTUVWXYZ)
+list_a = list("ABCDEFGHIJQLMNOPQRSTUVWXYZ")
 #définir la clef de substitution 
 clef = list(input("entrez votre clef:"))
 print(clef)
@@ -42,21 +43,22 @@ print(clef)
 def dechiffre_message(message_chiffre) : 
     message_dechiffré = ""
     #dechiffrer chaque caractere du message 
-    for caractere_chiffre in message_chiffre: 
-        if caractere_chiffre in clef : 
-            indice = clef.index(caractere_chiffre)
-            caractere_dechiffre = alphabet[indice]
-            message_dechiffre += caractere_dechiffre
+    for lettre_chiffre in message_chiffre: 
+        if lettre_chiffre in clef : 
+            indice = clef.index(lettre_chiffre)
+            lettre_dechiffre = list_a[indice]
+            message_dechiffré += lettre_dechiffre
         else:
-            message_dechiffre += caractere_chiffre 
-    return message_dechiffre 
-#à corriger
+            message_dechiffré += lettre_chiffre 
+    return message_dechiffré
 
-#exemple d'utilisation 
 message_chiffre = input("entrez le message à dechiffrer : ")
-message_dechiffre = dechiffre_message(message_chiffre)
+message_dechiffré = dechiffre_message(message_chiffre)
 print("message chiffré:", message_chiffre)
-print("message déchiffré:",message_dechiffre)
+print("message déchiffré:",message_dechiffré)
+#clef de substitution : AZERTYUIOPQSDFGHJKLMWXCVBN
+#message à dechiffrer : ZGFPGWK EGDDTFM EA XA 
+    
 
 def cryptage_scytale(plaintext, key):
     key = int(key)
