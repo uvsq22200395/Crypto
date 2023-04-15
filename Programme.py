@@ -21,8 +21,8 @@ def chiffré_message(message_en_clair):
     #la fonction renvoie la variable message chiffre.
     for lettre in message_en_clair:
         if lettre in liste_a:
-            position = liste_a.index(lettre)
-            lettre_chiffré = clef[position]
+            indice = liste_a.index(lettre)
+            lettre_chiffré = clef[indice]
             message_chiffré += lettre_chiffré
         else:
             message_chiffré += lettre
