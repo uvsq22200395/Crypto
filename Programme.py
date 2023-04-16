@@ -7,8 +7,9 @@ liste_a = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 print("alphabet original:",liste_a)
 
 #cle de substitution 
-clef = list(liste_a)
-random.shuffle(clef)
+#clef = list(liste_a)
+#random.shuffle(clef)
+clef = list("AZERTYUIOPQSDFGHJKLMWXCVBN")
 print("nouvel alphabet:",clef)
 message_en_clair = input("entrez votre message :")
 
@@ -36,7 +37,8 @@ print("message chiffré:",message_chiffré)
 #décriptage MARIE-MICHELE2 
 list_a = list("ABCDEFGHIJQLMNOPQRSTUVWXYZ")
 #définir la clef de substitution 
-clef = list(input("entrez votre clef:"))
+#clef = list(input("entrez votre clef:"))
+clef = list("AZERTYUIOPQSDFGHJKLMWXCVBN")
 print(clef)
 
 #définir une fonction pour déchiffrer un message 
