@@ -81,18 +81,19 @@ def decryptage_scytale(ciphertext, key):
         index = (index + 1) % key
     return ''.join(plaintext)
 
-def vigenere_cryptage(plaintext, key):
-    ciphertext = ""
-    key_index = 0
-    for char in plaintext:
-        if char.isalpha():
-            shift = ord(key[key_index % len(key)].upper()) - 65
-            cipher_char = chr((ord(char.upper()) + shift - 65) % 26 + 65)
-            ciphertext += cipher_char
-            key_index += 1
-        else:
-            ciphertext += char
-    return ciphertext
+def vigenere_cryptage(c, cle):
+    indice_cle = 0
+    msg_code =""
+
+    for i in range(0, len (c)):
+        if 'A'<= c[i]<='Z':
+            msg_code +=chr((((ord(c[i])-ord('A'))+(ord(cle[indice_cle])-ord('A')))%26)+ord('A'))
+            indice_cle = (indice_cle + 1) % len(cle)
+    else:
+        msg_code +=c[i]
+    return msg_code
+
+print(vigenere('BONDOUR. A TOUS', 'PYTHON'))
 
 def vigenere_decryptage(ciphertext, key):
     plaintext = ""
