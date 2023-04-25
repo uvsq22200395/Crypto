@@ -23,8 +23,11 @@ Création de 8 fonctions de crypto-analyse :
 
 ## Implémentation des algorithmes de chiffrement:
 a. Code de César
+
 b. Chiffre de Vigenère
+
 c. Scytale
+
 d. Substitution monoalphabétique générale
 
 
