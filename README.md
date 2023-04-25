@@ -23,6 +23,10 @@ Création de 8 fonctions de crypto-analyse :
 
 ## Implémentation des algorithmes de chiffrement:
 a. Code de César
+Liens :
+https://www.dcode.fr/chiffre-cesar
+https://www.youtube.com/watch?v=OcKqANtoulU&t=412s
+https://calculis.net/code-cesar
 
 b. Chiffre de Vigenère
 
